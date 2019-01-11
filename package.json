@@ -1,0 +1,50 @@
+{
+  "name": "@wjtools/vue-countup",
+  "version": "1.0.0",
+  "description": "CountUp component for Vue.js",
+  "main": "dist/vue-countup.common.js",
+  "module": "dist/vue-countup.esm.js",
+  "unpkg": "dist/vue-countup.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "yarn build",
+    "dev": "rollup -c -m -w",
+    "lint": "eslint src test *.js --fix",
+    "clear": "del-cli dist",
+    "release": "npm run clear && npm run lint && npm run build && npm run compress && npm test",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "countup.js": "^1.9.3"
+  },
+  "devDependencies": {
+    "del-cli": "^1.1.0",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.8.0",
+    "eslint": "^5.11.0",
+    "rollup": "^0.66.6",
+    "rollup-watch": "^4.3.1",
+    "rollup-plugin-babel": "^4.0.3"
+  },
+  "peerDependencies": {
+    "vue": "^v2.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wjtools/vue-countup.git"
+  },
+  "keywords": [
+    "vue",
+    "component",
+    "vue-countup"
+  ],
+  "author": "steven",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wjtools/vue-countup/issues"
+  },
+  "homepage": "https://github.com/wjtools/vue-countup#readme"
+}
