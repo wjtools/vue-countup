@@ -40,10 +40,7 @@ export default {
       type: Object,
       default() {
         return {
-          useEasing: true,
-          useGrouping: true,
-          separator: '',
-          decimal: '.'
+          useGrouping: false
         }
       }
     }
@@ -88,7 +85,7 @@ export default {
       let endVal = isLargeVal ? this.endVal - 100 : this.endVal
       let duration = isLargeVal ? this.duration / 2 : this.duration
 
-      const countup = this.countup = new CountUp(
+      this.countup = new CountUp(
         this.$el,
         this.startVal,
         endVal < 0 ? 0 : endVal,
@@ -97,10 +94,10 @@ export default {
         this.options
       )
 
-      if (countup.error) {
-        console.error(countup.error)
+      if (this.countup.error) {
+        console.error(this.countup.error)
       } else {
-        this.start()
+        return this.start()
       }
     },
 
@@ -110,8 +107,8 @@ export default {
     },
 
     start(callback = this.done) {
-      const countup = this.countup
-      return countup && countup.start(() => {
+      if (!this.countup) return this.initCountup()
+      return this.countup.start(() => {
         if (this.isLargeVal) {
           this.update(this.endVal)
           setTimeout(callback, this.duration)

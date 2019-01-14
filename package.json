@@ -7,27 +7,31 @@
   "unpkg": "dist/vue-countup.js",
   "scripts": {
     "build": "rollup -c",
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "npm run build",
     "dev": "rollup -c -m -w",
-    "lint": "eslint src test *.js --fix",
+    "lint": "eslint src *.js --fix",
     "clear": "del-cli dist",
-    "release": "npm run clear && npm run lint && npm run build && npm run compress && npm test",
+    "release": "npm run clear && npm run lint && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "countup.js": "^1.9.3"
   },
   "devDependencies": {
-    "del-cli": "^1.1.0",
     "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/preset-env": "^7.2.3",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "prettier": "^1.14.3",
-    "pretty-quick": "^1.8.0",
-    "eslint": "^5.11.0",
-    "rollup": "^0.66.6",
-    "rollup-watch": "^4.3.1",
-    "rollup-plugin-babel": "^4.0.3"
+    "babel-eslint": "^10.0.1",
+    "del-cli": "^1.1.0",
+    "eslint": "^5.12.0",
+    "eslint-config-prettier": "^3.4.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-vue": "^5.1.0",
+    "prettier": "^1.15.3",
+    "rollup": "^1.1.0",
+    "rollup-plugin-babel": "^4.3.0",
+    "rollup-plugin-eslint": "^5.0.0",
+    "rollup-watch": "^4.3.1"
   },
   "peerDependencies": {
     "vue": "^v2.5.0"
@@ -38,7 +42,9 @@
   },
   "keywords": [
     "vue",
-    "component",
+    "vue-component",
+    "countup",
+    "countup.js",
     "vue-countup"
   ],
   "author": "steven",

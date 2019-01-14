@@ -5,9 +5,10 @@ module.exports = {
   },
   extends: [
     'plugin:vue/strongly-recommended',
-    '@vue/prettier'
+    'plugin:prettier/recommended'
   ],
   'rules': {
+    'prettier/prettier': 'error',
     'vue/max-attributes-per-line': ['error', {
       singleline: 3
     }],

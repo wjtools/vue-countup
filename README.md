@@ -1,12 +1,11 @@
-# vue-countup-v2
+# vue-countup
 
-> Vue.js(v2.x+) component wrap for CountUp.js(v1.x+)
-
+> CountUp component for Vue.js(v2.x+)
 
 ## Installation
 
 ``` bash
-$ npm install --save countup.js vue-countup-v2
+$ yarn add @wjtools/vue-countup
 ```
 
 
@@ -14,94 +13,107 @@ $ npm install --save countup.js vue-countup-v2
 
 ``` vue
 <template>
-  <div class="iCountUp">
-    <ICountUp
-      :startVal="startVal"
-      :endVal="endVal"
-      :decimals="decimals"
-      :duration="duration"
-      :options="options"
-      @ready="onReady"
-    />
-  </div>
+  <CountUp :endVal="endVal" />
 </template>
 
-<script type="text/babel">
-  import ICountUp from 'vue-countup-v2';
+<script>
+  import CountUp from 'vue-countup'
   export default {
-    name: 'demo',
-    components: {
-      ICountUp
-    },
+    components: { CountUp },
     data() {
-      return {
-        startVal: 0,
-        endVal: 120500,
-        decimals: 0,
-        duration: 2.5,
-        options: {
-          useEasing: true,
-          useGrouping: true,
-          separator: ',',
-          decimal: '.',
-          prefix: '',
-          suffix: ''
-        }
-      };
-    },
-    methods: {
-      onReady: function(instance, CountUp) {
-        const that = this;
-        instance.update(that.endVal + 100);
-      }
+      return { endVal: 1688 }
     }
-  };
-</script>
-
-<style scoped>
-  .iCountUp {
-    font-size: 12em;
-    margin: 0;
-    color: #4d63bc;
   }
-</style>
+</script>
 ```
 
 ## Properties
 
-* `startVal` **[Number]**
+### startVal
 
-  Optional; `0` by defualt. The value you want to begin at.
+- type: `Number`
+- default: `0`
 
-* `endVal` **[Number]**
+The value you want to begin at
 
-  Required; The value you want to arrive at.
+### endVal
 
-* `decimals` **[Number]**
+- required: `true`
+- type: `Number`
+- default: `0`
 
-  Optional; `0` by defualt. Number of decimal places in number.
+The value you want to arrive at
 
-* `duration` **[Number]**
+### decimals
 
-  Optional; `2` by defualt. Duration in seconds.
+- type: `Number`
+- default: `0`
 
-* `options` **[Object]**
+Number of decimal places in number
 
-  Optional; Formatting/easing options object.
+### duration
 
-See more [countUp.js](https://github.com/inorganik/countUp.js)
+- type: `Number`
+- default: `0`
+
+Duration in seconds
+
+### tag
+
+- type: `String`
+- default: `span`
+
+### color
+
+- type: `String`
+
+### isLargeVal
+
+- type: `Boolean`
+- default: `false`
+
+Animating to large numbers
+
+### options
+
+- type: `Number`
+- default: `{ useGrouping: false }`
+
+Formatting/easing options object
+
+See more [CountUp.js](https://github.com/inorganik/countUp.js)
 
 
-## Static Methods
+## Methods
 
-* `start`
-* `pauseResume`
-* `reset`
-* `update`
+* `start`: Start animation
+* `pauseResume`: Toggle pause/resume
+* `reset`: Reset an animation
+* `update`: Update the end value and animat
 
-Learn more [countUp.js](https://github.com/inorganik/countUp.js)
+```html
+<CountUp ref="countup" :endVal="1688" :autoplay="false" />
+```
+
+```js
+export default {
+  mounted() {
+    this.$refs.countup.start()
+  }
+}
+```
+
+
+## Browser support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Opera (latest)
+- Edge (latest)
+- Internet Explorer 9+
 
 
 # License
 
-MIT
+[MIT](https://opensource.org/licenses/MIT)
