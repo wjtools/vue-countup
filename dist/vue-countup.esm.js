@@ -1,3 +1,5 @@
+import CountUp from 'countup.js';
+
 var index = {
   name: 'CountUp',
   props: {

@@ -1,5 +1,9 @@
 'use strict';
 
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var CountUp = _interopDefault(require('countup.js'));
+
 var index = {
   name: 'CountUp',
   props: {

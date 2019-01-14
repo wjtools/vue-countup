@@ -1,8 +1,10 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.CountUp = factory());
-}(this, function () { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('countup.js')) :
+  typeof define === 'function' && define.amd ? define(['countup.js'], factory) :
+  (global = global || self, global.CountUp = factory(global.CountUp));
+}(this, function (CountUp) { 'use strict';
+
+  CountUp = CountUp && CountUp.hasOwnProperty('default') ? CountUp['default'] : CountUp;
 
   var index = {
     name: 'CountUp',

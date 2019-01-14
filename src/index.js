@@ -1,3 +1,5 @@
+import CountUp from 'countup.js'
+
 export default {
   name: 'CountUp',
   props: {

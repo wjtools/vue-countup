@@ -1,6 +1,6 @@
 {
   "name": "@wjtools/vue-countup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CountUp component for Vue.js",
   "main": "dist/vue-countup.common.js",
   "module": "dist/vue-countup.esm.js",
