@@ -1,6 +1,6 @@
 # vue-countup
 
-> CountUp component for Vue.js(v2.x+)
+> CountUp component for Vue.js
 
 ## Installation
 
@@ -91,16 +91,41 @@ See more [CountUp.js](https://github.com/inorganik/countUp.js)
 * `reset`: Reset an animation
 * `update`: Update the end value and animat
 
-```html
-<CountUp ref="countup" :endVal="1688" :autoplay="false" />
+``` vue
+<template>
+  <CountUp ref="countup" :endVal="1688" :autoplay="false" />
+</template>
+
+<script>
+  export default {
+    mounted() {
+      this.$refs.countup.start()
+    }
+  }
+</script>
 ```
 
-```js
-export default {
-  mounted() {
-    this.$refs.countup.start()
+
+## Events
+
+* done: ({ countup }) => void
+
+Emits when the animation completes
+
+``` vue
+<template>
+  <CountUp :endVal="1688" :done="complete" />
+</template>
+
+<script>
+  export default {
+    mounted() {
+      complete(countup) {
+        console.log(countup)
+      }
+    }
   }
-}
+</script>
 ```
 
 
